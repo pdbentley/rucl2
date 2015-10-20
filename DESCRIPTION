@@ -1,16 +1,15 @@
-Package: rucl
+Package: rucl2
 Version: 0.50
 Date: 2013-09-23
 Title: Upper Confidence Limit (UCL) functions for R
-Author@R: c(person("Eric", "Bailey", role = c("aut", "cre"), email = "ebailey@idem.in.gov"),
+Author@R: c(person("Eric", "Bailey", role = c("aut", "cre"), email = "eb11307@gmail.com"),
  person("Nathan", "Byers", role = "ctb"))
 Author: Eric Bailey with contributions by Nathan Byers
-Maintainer: Eric Bailey <ebailey@idem.in.gov>
+Maintainer: Eric Bailey <eb11307@gmail.com>
 Depends: splines, ggplot2, maps, mapproj
 License: GPL-2
 Description: A package of functions for calculating Upper Confidence Limits (UCLs) of the mean.
  Developed primarily for environmental datasets and strongly based off of U.S. EPA's
- ProUCL software package. Calculates a number of different UCLs and makes basics recommendations
- on which UCL to use based on dataset characteristics. Also helps to format data from U.S. EPA's
- AQS database for easier use in R.
+ ProUCL software package (version 4). Calculates a number of different UCLs and makes basics recommendations
+ on which UCL to use based on dataset characteristics. 
 ByteCompile: TRUE
