@@ -6,8 +6,8 @@ Author@R: c(person("Eric", "Bailey", role = c("aut", "cre"), email = "eb11307@gm
  person("Nathan", "Byers", role = "ctb"))
 Author: Eric Bailey with contributions by Nathan Byers
 Maintainer: Eric Bailey <eb11307@gmail.com>
-Depends: splines, ggplot2, maps, mapproj
 License: GPL-2
+Depends: splines
 Description: A package of functions for calculating Upper Confidence Limits (UCLs) of the mean.
  Developed primarily for environmental datasets and strongly based off of U.S. EPA's
  ProUCL software package (version 4). Calculates a number of different UCLs and makes basics recommendations

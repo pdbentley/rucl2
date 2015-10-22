@@ -1,6 +1,5 @@
 # Creates generic function "ucl"
-ucl <- function(x, type, confidence = 0.95,
-                N = 2000, d, ...) UseMethod("ucl")
+# ucl <- function(x, type, confidence = 0.95, N = 2000, d, ...) UseMethod("ucl")
 
 # This is the default function for the generic function 'ucl'. It requires a 
 # numeric vector 'x' and optionally a logical vector 'd' for censored datasets 
@@ -14,9 +13,13 @@ ucl <- function(x, type, confidence = 0.95,
 # ucl(s) that the packages deems to be appropriate and return a numeric vector 
 # with those values. The names of that vector will contain the ucl type 
 # contained in that cell.
-ucl.default <- function(x, type = "fast", confidence, N, d, ...) {
+ucl <- function(x, type = "fast", confidence = 0.95, N = 2000, d, ...) {
 
   if(!is.numeric(x)) stop("x must be a numeric vector")
+  
+  if(length(unique(x)) < 2) {
+    return(NA)
+  }
   
   i <- !is.na(x)
   

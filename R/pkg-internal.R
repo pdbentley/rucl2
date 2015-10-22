@@ -10,7 +10,7 @@ u3 <- function(x) {
   sum((x - m)^3) / ((n - 1) * (n - 2))
 }
 
-skew <- function(x) length(data) * u3(data) / sd(data)^3
+skew <- function(x) length(x) * u3(x) / sd(x)^3
 
 # Takes an mns object and uses it to interpolate values using natural splines
 mns.interpolate <- function(mns, new.x) {
