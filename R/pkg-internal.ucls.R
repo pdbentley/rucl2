@@ -109,7 +109,7 @@ b.zboot <- function(B, con) {
 }
 
 # Percentile Bootstrap
-b.pboot <- function(B, con) as.vector(quantile(B, con)[[1]])
+b.pboot <- function(B, con) as.vector(quantile(B, con, na.rm=T)[[1]])
 
 # Uncensored Student's-t bootstrap
 u.tboot <- function(x, m, se, con, N, ...) {
@@ -122,7 +122,7 @@ u.tboot <- function(x, m, se, con, N, ...) {
   }
   
   B <- u.bootstrap(x, N, ti, m = m)
-  m - as.vector(quantile(B, 1-con)) * se
+  m - as.vector(quantile(B, 1-con, na.rm=T)) * se
   
 }
 
@@ -136,7 +136,7 @@ c.tboot <- function(x, d, m, se, con, N, ...) {
   }
   
   B <- c.bootstrap(x, d, N, ti, m = m)
-  m - as.vector(quantile(B, 1-con)) * se
+  m - as.vector(quantile(B, 1-con, na.rm=T)) * se
   
 }
 
@@ -152,7 +152,7 @@ b.hallboot <- function(x, m, n, skew, se, con, N, ...) {
     w.i + k3.i * w.i^2 / 3 + k3.i^2 * w.i^3 / 27 + k3.i / (6*n.i)
   }
   
-  m - 3 * ((1 + skew * (as.vector(quantile(u.bootstrap(x, N, Wi, m = m), 1-con))
+  m - 3 * ((1 + skew * (as.vector(quantile(u.bootstrap(x, N, Wi, m = m), 1-con, na.rm=T))
                         - skew / (6 * n)))^(1/3) - 1) / skew * (se * sqrt(n))
   
 }
@@ -165,7 +165,7 @@ u.bcaboot <- function(B, x, m, n, con, N, ...) {
   m.i <- sapply(seq(n), function(i, d, n) sum(d[-i])/n, d = x, n = n-1)
   a.hat <- sum((m - m.i)^3) / (6 * (sum((m - m.i)^2))^1.5)
   a.2 <- pnorm(z.0 + ((z.0 + qnorm(con)) / (1 - a.hat*(z.0 + qnorm(con)))))
-  as.vector(quantile(B, a.2)[[1]])
+  as.vector(quantile(B, a.2, na.rm=T)[[1]])
   
 }
 
@@ -178,6 +178,6 @@ c.bcaboot <- function(B, x, d, m, n, con, N, ...) {
   a.hat <- sum((m - m.i)^3) / (6 * (sum((m - m.i)^2))^1.5)
   qcon <- qnorm(con)
   a.2 <- pnorm(z.0 + (z.0 + qcon) / (1 - a.hat*(z.0 + qcon)))
-  as.vector(quantile(B, a.2)[[1]])
+  as.vector(quantile(B, a.2, na.rm=T)[[1]])
   
 }
